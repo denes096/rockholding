@@ -1,0 +1,43 @@
+<div fxLayoutAlign="center" fxFlexFill class="login-div">
+    <mat-table fxFlex="80"  [dataSource]="estates" class="mat-elevation-z2">
+
+        <ng-container matColumnDef="images">
+            <mat-header-cell *matHeaderCellDef> Kép </mat-header-cell>
+            <mat-cell *matCellDef="let product"> <img [src]="product.images[0]" /> </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="external_id">
+            <mat-header-cell *matHeaderCellDef> Azonosító </mat-header-cell>
+            <mat-cell *matCellDef="let product" data-label="Azonosító"> <a [routerLink]="'/ingatlan/adatlap/'+product.external_id" routerLinkActive="active">{{product.external_id}}</a></mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="type">
+            <mat-header-cell *matHeaderCellDef> Jelleg, típus </mat-header-cell>
+            <mat-cell *matCellDef="let product" data-label="Jelleg, típus"> {{product.type}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="settlement">
+            <mat-header-cell *matHeaderCellDef> Város </mat-header-cell>
+            <mat-cell *matCellDef="let product" data-label="Város"> {{product.settlement}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="user_name">
+            <mat-header-cell *matHeaderCellDef> Referens </mat-header-cell>
+            <mat-cell *matCellDef="let product" data-label="Referens"> {{product.user_name}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+            <mat-header-cell *matHeaderCellDef> Irányár </mat-header-cell>
+            <mat-cell *matCellDef="let product" data-label="Irányár"> {{product.price}} Ft </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="size">
+            <mat-header-cell *matHeaderCellDef> Méret </mat-header-cell>
+            <mat-cell *matCellDef="let product" data-label="Méret"> {{product.size == 0 ? product.plot + ' &#13217;': product.size + ' &#13217;'}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        
+    </mat-table>
+</div>

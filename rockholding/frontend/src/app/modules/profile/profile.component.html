@@ -1,0 +1,71 @@
+<div fxLayoutAlign="center center" fxFlexFill class="profile-div">
+    <mat-card fxFlex="70">
+        <mat-card-title>{{estate?.external_id}}</mat-card-title>
+        <mat-card-content>
+            <div>
+                <ng-image-slider [images]="estate?.images" #nav></ng-image-slider>
+            </div>
+
+            <div class="container">
+                <table>
+                    <tr>
+                        <td>Város</td>
+                        <td>{{estate?.settlement}}</td>
+                    </tr>
+                    <tr>
+                        <td>Utca</td>
+                        <td>{{estate?.street}}</td>
+                    </tr>
+                    <tr>
+                        <td>Irányár</td>
+                        <td>{{estate?.price}}</td>
+                    </tr>
+                    <tr *ngIf="!this.size; else plot">
+                        <td>Méret</td>
+                        <td>{{estate?.size}}</td>
+                    </tr>
+                    <ng-template #plot>
+                        <td>Telek méret</td>
+                        <td>{{estate?.plot}}</td>
+                    </ng-template>
+                    <tr>
+                        <td>Szobák száma</td>
+                        <td>{{estate?.rooms}}</td>
+                    </tr>
+                    <tr>
+                        <td>Állapot</td>
+                        <td>{{estate?.state}}</td>
+                    </tr>
+                    <tr>
+                        <td>Fűtés</td>
+                        <td>{{estate?.heating}}</td>
+                    </tr>
+                    <tr>
+                        <td>Fekvés</td>
+                        <td>{{estate?.sitting}}</td>
+                    </tr>
+                    <tr>
+                        <td>Közmű</td>
+                        <td>{{estate?.utilities}}</td>
+                    </tr>
+                    <tr>
+                        <td>Referens</td>
+                        <td>{{estate?.user_name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Referens elérhetősége</td>
+                        <td>{{estate?.user_email + ", " + estate?.user_phone}}</td>
+                    </tr>
+                    <tr>
+                        <td>Leírás</td>
+                        <td>{{estate?.description}}</td>
+                    </tr>
+                </table>
+            </div>
+
+        </mat-card-content>
+        <mat-card-actions>
+            <a [routerLink]="'/ingatlan/lista/'" routerLinkActive="active"><button >Vissza</button></a>
+        </mat-card-actions>
+    </mat-card>
+</div>

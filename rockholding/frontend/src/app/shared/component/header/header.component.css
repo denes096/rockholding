@@ -1,0 +1,32 @@
+header {
+    padding: 15px;
+    background-color: #beef00;
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    border-bottom: 2px solid black;
+    margin-bottom: 50px;
+}
+
+button {
+    width: 80px;
+    height: 40px;
+    border:solid 2px black;
+    font-weight: bold;
+    color: black;
+    border-radius: 5px;
+    background: rgba(255, 255, 255,0);
+    font-size: 15px;
+}
+
+button:hover {
+    background:black;
+    color:#beef00; 
+    cursor: pointer;
+}
+
+@media screen and (max-width: 400px) {
+    #logo {
+        display: none;
+    }
+}

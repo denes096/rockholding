@@ -1,0 +1,8 @@
+<header fxLayoutAlign="space-between center">
+    <div id="logo">Rockholding</div>
+    <div fxLayout="row" fxLayoutGap="30px" >
+        <a routerLink="/login" *ngIf="!(loggedIn$ | async)"><button mat-raised-button>Login</button></a>
+        <a routerLink="/signup" *ngIf="!(loggedIn$ | async)"><button mat-raised-button>Signup</button></a>
+        <a routerLink="/logout" (click)="onLogout()" *ngIf="(loggedIn$ | async)"><button mat-raised-button>Logout</button></a>
+    </div>
+</header>
